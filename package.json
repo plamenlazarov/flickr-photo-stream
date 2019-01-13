@@ -1,0 +1,38 @@
+{
+  "name": "flickr-photo-stream",
+  "version": "1.0.0",
+  "description": "Consumes the publick Flickr API and display the results",
+  "main": "src/App.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plamenlazarov/flickr-photo-stream.git"
+  },
+  "author": "Plamen Lazarov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plamenlazarov/flickr-photo-stream/issues"
+  },
+  "homepage": "https://github.com/plamenlazarov/flickr-photo-stream#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.12.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.12.3",
+    "parcel-bundler": "^1.11.0",
+    "prettier": "^1.15.3"
+  },
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
