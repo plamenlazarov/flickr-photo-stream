@@ -1,0 +1,16 @@
+ul {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+
+  li {
+    padding: 10px;
+    max-width: 320px;
+
+    img {
+      width: 320px;
+      height: 249px;
+    }
+  }
+}
+

@@ -1,0 +1,13 @@
+.caption-wrapper {
+  margin: 0.625em 0;
+
+  .photo-title {
+    margin-bottom: 0.625em;
+  }
+
+  .photo-title, .author {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

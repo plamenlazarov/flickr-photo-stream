@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PhotoTile from "./PhotoTile";
-import { fetchPhotos } from "./../utils";
+import PhotoTile from "../PhotoTile/PhotoTile";
+import Description from "../Description/Description";
+import Modal from "../Modal/Modal";
+import { fetchPhotos } from "./../../utils";
+import './style.scss';
 
 class PhotoStream extends Component {
   state = {
     photos: [],
-    isLoading: true
+    isLoading: true,
+    showDetails: true,
+    showModal: false,
+    description: null
   };
 
   componentDidMount() {
@@ -52,15 +58,31 @@ class PhotoStream extends Component {
     this.setState({ isLoading: true });
   };
 
+  handleModal = (description) => {
+    this.setState({
+      showModal: !this.state.showModal,
+      description: description
+    });
+  }
+
   render() {
     return (
       <div>
         <ul>
-          {this.state.photos.map((photo, idx) => (
-            <PhotoTile photo={photo} key={photo.author_id + idx} />
+          {this.state.photos.map((
+            photo,
+            idx
+          ) => (
+            <PhotoTile photo={photo} onClick={() => this.handleModal(photo.description)} key={photo.author_id + idx} />
           ))}
         </ul>
         {this.state.isLoading ? <div className="loader" /> : <div />}
+      {this.state.showModal ?
+          <Modal>
+            <button onClick={() => this.handleModal(null)}>Close</button>
+            <Description data={this.state.description} showDetails={this.state.showDetails} />
+          </Modal>
+          : null}
       </div>
     );
   }

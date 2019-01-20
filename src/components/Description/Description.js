@@ -1,5 +1,6 @@
 import React from "react";
 import DOMPurify from "dompurify";
+import './style.scss';
 
 //if using propTypes - showDetails must not be mandatory
 const Description = ({ data, showDetails }) => {
@@ -12,20 +13,20 @@ const Description = ({ data, showDetails }) => {
   if (wrapper.childElementCount > 2) {
     desc = wrapper.lastChild.outerHTML;
   } else {
-    desc = "<p>No description provided</p>";
+    desc = "<p>Description</p>";
   }
 
   if (showDetails) {
     return (
       <div
-        className="description"
+        className="description-full"
         dangerouslySetInnerHTML={{ __html: sanitizedHTML }}
       />
     );
   }
 
   return (
-    <div className="description" dangerouslySetInnerHTML={{ __html: desc }} />
+    <div className="description-summary" dangerouslySetInnerHTML={{ __html: desc }} />
   );
 };
 

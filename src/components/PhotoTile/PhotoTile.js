@@ -1,10 +1,12 @@
 import React from "react";
-import Caption from "./Caption";
-import Description from "./Description";
-import Modal from "./Modal";
+import Caption from "../Caption/Caption";
+import Description from "../Description/Description";
+import './style.scss';
 
 const PhotoTile = ({ photo, onClick }) => {
   const { title, link, author, author_id, media, description } = photo;
+  // Handle cases where title is a whitespace
+  const photoTitle = title.trim() ? title : 'Title';
 
   return (
     <li>
@@ -18,10 +20,11 @@ const PhotoTile = ({ photo, onClick }) => {
       </div>
       <Caption
         link={link}
-        title={title}
+        title={photoTitle}
         author_id={author_id}
         author={author}
       />
+      <Description data={description} />
     </li>
   );
 };

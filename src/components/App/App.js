@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import PhotoStream from "./PhotoStream";
+import PhotoStream from "../PhotoStream/PhotoStream";
 
 class App extends Component {
   render() {
