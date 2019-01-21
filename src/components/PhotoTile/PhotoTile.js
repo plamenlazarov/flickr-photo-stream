@@ -24,7 +24,7 @@ const PhotoTile = ({ photo, onClick }) => {
         author_id={author_id}
         author={author}
       />
-      <Description data={description} />
+      <p onClick={onClick}>See more...</p>
     </li>
   );
 };

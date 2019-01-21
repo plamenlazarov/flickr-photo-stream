@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Navbar from "../Navbar/Navbar";
 import PhotoTile from "../PhotoTile/PhotoTile";
 import Description from "../Description/Description";
 import Modal from "../Modal/Modal";
@@ -12,6 +13,7 @@ class PhotoStream extends Component {
     isLoading: true,
     showDetails: true,
     showModal: false,
+    searchTerm: '',
     description: null
   };
 
@@ -65,9 +67,23 @@ class PhotoStream extends Component {
     });
   }
 
+  handleChange = (e) => {
+    this.setState({searchTerm: e.target.value});
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const searchParam = '&tags=' + this.state.searchTerm;
+
+    fetchPhotos(searchParam).then(resp =>
+      this.setState({ photos: resp.data.items })
+    );
+  }
+
   render() {
     return (
       <div>
+        <Navbar onSubmit={this.handleSubmit} onChange={this.handleChange} />
         <ul>
           {this.state.photos.map((
             photo,
@@ -79,7 +95,7 @@ class PhotoStream extends Component {
         {this.state.isLoading ? <div className="loader" /> : <div />}
       {this.state.showModal ?
           <Modal>
-            <button onClick={() => this.handleModal(null)}>Close</button>
+            <button className="close-btn" onClick={() => this.handleModal(null)}>Close</button>
             <Description data={this.state.description} showDetails={this.state.showDetails} />
           </Modal>
           : null}

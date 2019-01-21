@@ -2,6 +2,7 @@ ul {
   display: flex;
   list-style-type: none;
   flex-wrap: wrap;
+  justify-content: center;
 
   li {
     padding: 10px;
@@ -10,6 +11,14 @@ ul {
     img {
       width: 320px;
       height: 249px;
+      cursor: pointer;
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+
+    p {
+      color: wheat;
+      cursor: pointer;
     }
   }
 }

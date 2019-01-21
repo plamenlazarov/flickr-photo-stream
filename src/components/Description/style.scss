@@ -1,12 +1,29 @@
-.description-full {
-  margin: 0 auto;
-  color: lightgray;
+#modal {
 
-  a {
-    color: wheat;
+  > div {
+    width: 40%;
   }
 
-  img {
-    margin: 0.625em 0;
+  .close-btn {
+    display: flex;
+    margin: 0.625em auto;
+  }
+
+  .description-full {
+    width: 40%;
+    margin: 0 auto;
+    color: lightgray;
+
+    @media (min-width: 320px) and (max-width: 480px) {
+      width: 100%;
+    }
+
+    a {
+      color: wheat;
+    }
+
+    img {
+      margin: 0.625em 0;
+    }
   }
 }
