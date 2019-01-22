@@ -5,6 +5,9 @@
   "main": "src/App.js",
   "scripts": {
     "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "test": ""
@@ -18,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/plamenlazarov/flickr-photo-stream/issues"
   },
-  "homepage": "https://github.com/plamenlazarov/flickr-photo-stream#readme",
+  "homepage": "https:/plamenlazarov.github.io/flickr-photo-stream",
   "devDependencies": {
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
@@ -36,6 +39,7 @@
   },
   "dependencies": {
     "dompurify": "^1.0.9",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "style.css": "^1.0.0"

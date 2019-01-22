@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import PhotoTile from "../PhotoTile/PhotoTile";
 import Description from "../Description/Description";
 import Modal from "../Modal/Modal";
 import { fetchPhotos } from "./../../utils";
-import './style.scss';
+import "./style.scss";
 
 class PhotoStream extends Component {
   state = {
@@ -13,7 +12,7 @@ class PhotoStream extends Component {
     isLoading: true,
     showDetails: true,
     showModal: false,
-    searchTerm: '',
+    searchTerm: "",
     description: null
   };
 
@@ -60,45 +59,53 @@ class PhotoStream extends Component {
     this.setState({ isLoading: true });
   };
 
-  handleModal = (description) => {
+  handleModal = description => {
     this.setState({
       showModal: !this.state.showModal,
       description: description
     });
-  }
+  };
 
-  handleChange = (e) => {
-    this.setState({searchTerm: e.target.value});
-  }
+  handleChange = e => {
+    this.setState({ searchTerm: e.target.value });
+  };
 
   handleSubmit = e => {
     e.preventDefault();
-    const searchParam = '&tags=' + this.state.searchTerm;
+    const searchParam = "&tags=" + this.state.searchTerm;
 
     fetchPhotos(searchParam).then(resp =>
       this.setState({ photos: resp.data.items })
     );
-  }
+  };
 
   render() {
     return (
       <div>
         <Navbar onSubmit={this.handleSubmit} onChange={this.handleChange} />
         <ul>
-          {this.state.photos.map((
-            photo,
-            idx
-          ) => (
-            <PhotoTile photo={photo} onClick={() => this.handleModal(photo.description)} key={photo.author_id + idx} />
+          {this.state.photos.map((photo, idx) => (
+            <PhotoTile
+              photo={photo}
+              onClick={() => this.handleModal(photo.description)}
+              key={photo.author_id + idx}
+            />
           ))}
         </ul>
         {this.state.isLoading ? <div className="loader" /> : <div />}
-      {this.state.showModal ?
+        {this.state.showModal ? (
           <Modal>
-            <button className="close-btn" onClick={() => this.handleModal(null)}>Close</button>
-            <Description data={this.state.description} showDetails={this.state.showDetails} />
+            <button
+              className="close-btn"
+              onClick={() => this.handleModal(null)}
+            >
+              Close
+            </button>
+            <Description
+              data={this.state.description}
+            />
           </Modal>
-          : null}
+        ) : null}
       </div>
     );
   }

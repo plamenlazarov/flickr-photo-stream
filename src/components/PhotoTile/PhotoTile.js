@@ -1,12 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Caption from "../Caption/Caption";
-import Description from "../Description/Description";
-import './style.scss';
+import "./style.scss";
 
 const PhotoTile = ({ photo, onClick }) => {
-  const { title, link, author, author_id, media, description } = photo;
+  const { title, link, author, author_id, media, tags } = photo;
   // Handle cases where title is a whitespace
-  const photoTitle = title.trim() ? title : 'Title';
+  const photoTitle = title.trim() ? title : "Title";
 
   return (
     <li>
@@ -25,8 +25,14 @@ const PhotoTile = ({ photo, onClick }) => {
         author={author}
       />
       <p onClick={onClick}>See more...</p>
+      <div className="tags">{tags}</div>
     </li>
   );
+};
+
+PhotoTile.propTypes = {
+  photo: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default PhotoTile;

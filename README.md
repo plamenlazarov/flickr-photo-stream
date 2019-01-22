@@ -14,7 +14,7 @@ Flickr Photo Stream creates a photostream-like gallery of images hosted on Flick
 - Wide browser support (Chrome, Firefox, Safari, IE)
 - Mobile-optimized, tested on IOS and Android
 
-# Limitations and further improvements
+# Further improvements
 
 - Display the gallery in a justified layout rather than using static thumbnails (as per requirement)
 - Possibility to display full-size images rather than thumbnails (limitation of the public photo feed)
@@ -22,6 +22,10 @@ Flickr Photo Stream creates a photostream-like gallery of images hosted on Flick
 - Multiple sorting options based on tag, title, size, description
 - Search functionality based on geo-tagging
 - Improved safe search
+- Improved styling
+- Unit tests
+- Static typing - TypeScript or Flow
+- Improved styling
 
 # Demo
 
@@ -37,6 +41,8 @@ Flickr Photo Stream creates a photostream-like gallery of images hosted on Flick
   `npm install`
 - Run dev build:
   `npm run dev`
+- Run production build:
+  `npm run build`
 
 
 

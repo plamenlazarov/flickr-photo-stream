@@ -1,7 +1,8 @@
 import React from "react";
-import './style.scss';
+import PropTypes from "prop-types";
+import "./style.scss";
 
-const Navbar = ({onSubmit, onChange}) => {
+const Navbar = ({ onSubmit, onChange }) => {
   return (
     <header>
       <div>PHOTO GALLERY</div>
@@ -13,7 +14,11 @@ const Navbar = ({onSubmit, onChange}) => {
       </div>
     </header>
   );
+};
 
-}
+Navbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
+};
 
 export default Navbar;
