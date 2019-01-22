@@ -1,7 +1,7 @@
 #
 # flickr-photo-stream
 
-Flickr Photo Stream creates a photostream-like gallery of images hosted on Flickr. It utilizes the public Flickr API to display a feed of recently added public photos according to the following basic wireframe:
+Flickr Photo Stream creates a photostream-like gallery of images hosted on Flickr. It utilizes the public Flickr API to display a feed of recently added public photos - https://plamenlazarov.github.io/flickr-photo-stream/
 
 # Features
 
@@ -25,7 +25,7 @@ Flickr Photo Stream creates a photostream-like gallery of images hosted on Flick
 - Improved styling
 - Unit tests
 - Static typing - TypeScript or Flow
-- Improved styling
+- Autoprefixer for wider css support
 
 # Demo
 
