@@ -3,9 +3,13 @@ import PropTypes from "prop-types";
 import DOMPurify from "dompurify";
 import "./style.scss";
 
-const Description = ({ data }) => {
+interface DescriptionProps {
+  data: string
+}
+
+const Description: React.SFC<DescriptionProps> = (props) => {
   // Ensure we are safe from XSS attacks
-  const sanitizedHTML = DOMPurify.sanitize(data);
+  const sanitizedHTML = DOMPurify.sanitize(props.data);
 
   return (
     <div
@@ -13,10 +17,6 @@ const Description = ({ data }) => {
       dangerouslySetInnerHTML={{ __html: sanitizedHTML }}
     />
   );
-};
-
-Description.propTypes = {
-  data: PropTypes.string.isRequired,
 };
 
 export default Description;

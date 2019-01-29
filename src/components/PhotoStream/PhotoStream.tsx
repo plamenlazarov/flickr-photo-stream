@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import PhotoTile from "../PhotoTile/PhotoTile";
 import Description from "../Description/Description";
 import Modal from "../Modal/Modal";
-import { fetchPhotos } from "./../../utils";
+import { fetchPhotos } from "../../utils";
 import "./style.scss";
 
 class PhotoStream extends Component {
