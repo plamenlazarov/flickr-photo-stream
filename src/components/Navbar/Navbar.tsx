@@ -2,8 +2,8 @@ import React from "react";
 import "./style.scss";
 
 interface NavbarProps {
-  onChange: () => void,
-  onSubmit: () => void
+  onChange: (e: any) => void,
+  onSubmit: (e: any) => void
 }
 
 const Navbar: React.SFC<NavbarProps> = (props) => {

@@ -3,20 +3,20 @@ import Navbar from "../Navbar/Navbar";
 import PhotoTile from "../PhotoTile/PhotoTile";
 import Description from "../Description/Description";
 import Modal from "../Modal/Modal";
-import { fetchPhotos } from "../../utils";
+import { fetchPhotos } from "./../../utils";
 import "./style.scss";
 
 class PhotoStream extends Component {
-  state = {
+  public state = {
     photos: [],
     isLoading: true,
     showDetails: true,
     showModal: false,
     searchTerm: "",
-    description: null
+    description: ""
   };
 
-  componentDidMount() {
+  public componentDidMount() {
     fetchPhotos().then(resp =>
       this.setState({ photos: resp.data.items, isLoading: false })
     );
@@ -24,7 +24,7 @@ class PhotoStream extends Component {
     window.addEventListener("scroll", this.handleScroll);
   }
 
-  componentWillUnmount() {
+  public componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
   }
 
@@ -79,7 +79,7 @@ class PhotoStream extends Component {
     );
   };
 
-  render() {
+  public render() {
     return (
       <div>
         <Navbar onSubmit={this.handleSubmit} onChange={this.handleChange} />

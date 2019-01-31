@@ -13,7 +13,7 @@ interface PhotoTileProps {
     },
     tags: string
   },
-  onClick: () => void
+  onClick: (e: any) => void
 }
 
 const PhotoTile: React.SFC<PhotoTileProps> = (props) => {
